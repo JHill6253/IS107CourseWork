@@ -4,27 +4,12 @@
     End Sub
 
     Private Sub btnProcess_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnProcess.Click
-        Dim lastName, firstName, address, city As String
-        Dim name() As String
-        Dim chairs, sofas As Integer
-        Dim InvoiceId As String
-        Dim cost, salesTax, TotalCost As Double
+        Dim num As Double = 10
+        Do While num > 1
+            lstOutput.Items.Add(num)
+            num = num - 3
+        Loop
 
-        InputData(name, address, city, chairs, sofas)
-        ProcessData(name, lastName, firstName, city, InvoiceId)
-        CalculateCost(chairs, sofas, cost, salesTax, TotalCost)
-
-        lstOutput.Items.Clear()
-        lstOutput.Items.Add("Invoice Number:" & InvoiceId)
-        lstOutput.Items.Add("")
-        lstOutput.Items.Add("Name:" & firstName & " " & lastName)
-        lstOutput.Items.Add("Address:" & address)
-        lstOutput.Items.Add("City:" & city)
-        lstOutput.Items.Add(" ")
-        lstOutput.Items.Add("Cost:" & FormatCurrency(cost))
-        lstOutput.Items.Add("Sales Tax:" & FormatCurrency(salesTax))
-        lstOutput.Items.Add("---------")
-        lstOutput.Items.Add("Total Cost:" & FormatCurrency(TotalCost))
     End Sub
     Public Sub InputData(ByRef name() As String, ByRef address As String, ByRef city As String, ByRef chairs As Integer, ByRef sofas As Integer)
         name = txtCustomerName.Text.Split(","c)
